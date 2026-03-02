@@ -1,54 +1,86 @@
 {
   "periods": {
     "today": {
-      "date": "2026-03-02",
-      "display": "今日 03-02"
+      "date": "03-02",
+      "label": "今日 03月02日"
     },
     "week": {
       "range": "03/02-03/08",
-      "display": "本周 03/02-03/08"
+      "label": "本周 03/02-03/08"
     },
     "month": {
       "period": "2026年03月",
-      "display": "2026年03月"
+      "label": "本月 03月"
     }
   },
-  "last_updated": "2026-03-02T11:47:00.969685",
   "tasks": {
     "today": {
       "my_tasks": [
         {
-          "name": "法务顾问邮件",
+          "name": "签黄律师的团队成员合约 + 付款",
           "status": "todo",
           "progress": 0,
           "tags": [
-            "今日",
-            "法务"
-          ],
-          "people": [
-            "法务顾问"
-          ],
-          "is_followup": false
-        },
-        {
-          "name": "审计项目审计跟进",
-          "status": "todo",
-          "progress": 0,
-          "tags": [
-            "今日",
+            "法务",
             "财务"
           ],
-          "people": [
-            "顾问M"
-          ],
+          "people": [],
           "is_followup": false
         },
         {
-          "name": "看板系统开发",
-          "status": "completed",
-          "progress": 100,
+          "name": "和商业顾问定审计项目 dispute方案",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "今日",
+            "法务",
+            "财务"
+          ],
+          "people": [],
+          "is_followup": true
+        },
+        {
+          "name": "验证David律师(212-799-8989)资质",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
+            "法务"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "联系东部workers comp律所",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "打电话给LM确认审计状态",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
+            "财务"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "给张律发审计项目审计文档",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
+            "财务"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "修复邮件系统监控系统",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
             "技术"
           ],
           "people": [],
@@ -57,29 +89,13 @@
       ],
       "followups": [
         {
-          "name": "保险顾问联系LM结果",
-          "status": "todo",
-          "progress": 0,
+          "name": "新员工薪资确认电话",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "今日",
-            "跟进"
+            "人事"
           ],
-          "people": [
-            "顾问P"
-          ],
-          "is_followup": true
-        },
-        {
-          "name": "团队成员工资方案确认",
-          "status": "todo",
-          "progress": 0,
-          "tags": [
-            "今日",
-            "跟进"
-          ],
-          "people": [
-            "成员M"
-          ],
+          "people": [],
           "is_followup": true
         }
       ]
@@ -87,22 +103,120 @@
     "week": {
       "my_tasks": [
         {
-          "name": "战略项目A重启规划",
+          "name": "和Euston签合同（费用已付$5,000+）",
           "status": "todo",
           "progress": 0,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "Google邮箱Chase信用卡申请",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "支付Tommy费用 HKD 2,000（VertexLink零申报）",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "思考审计项目新开银行账户并布局路径",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "扩招2-3人，以Brandon为首建小团队（Chris建议）",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "检查所有银行自动扣款，关联到个人TD账户",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "Audi payoff（趁换银行机会还清）",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "再开一次3280会议 — 议题：一月管报、临时工加薪、2月下半月重点、KPI绩效",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "本周",
-            "战略"
+            "人事"
           ],
           "people": [],
           "is_followup": false
         },
         {
-          "name": "项目B H1B准备",
+          "name": "给张哥转钱 — 欠款归还",
           "status": "todo",
           "progress": 0,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "和小伟哥探讨美国管理团队绩效方案",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "本周",
+            "人事"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "同步Carrier Announcement给所有Carrier（5条要求已起草）",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "新手机app login从老手机转移",
+          "status": "todo",
+          "progress": 0,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "确定USHR人员走向（派去佳佳 or 裁撤）+ 佳佳行政归属",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
+            "人事"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "调研出差标准可行性 — 已收Lillian参考材料（IRS标准），需测试+分高管/非高管",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
             "人事"
           ],
           "people": [],
@@ -111,73 +225,212 @@
       ],
       "followups": [
         {
-          "name": "商业顾问商业建议整理",
+          "name": "了解保险公司报价 @Brandon",
           "status": "todo",
           "progress": 0,
-          "tags": [
-            "本周",
-            "跟进"
-          ],
+          "tags": [],
           "people": [
-            "顾问Y"
+            "Brandon"
           ],
-          "is_followup": true
+          "is_followup": false
         },
         {
-          "name": "法务机构联系",
-          "status": "todo",
-          "progress": 0,
+          "name": "Carol询价（量很大） @Emily",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [
+            "Emily"
+          ],
+          "is_followup": false
+        },
+        {
+          "name": "西邮出差报销标准初稿 @Lillian ✅已提交（IRS标准），Ecco调研可行性中",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "本周",
-            "跟进"
+            "人事"
           ],
           "people": [
-            "法务机构"
+            "Lillian"
           ],
-          "is_followup": true
+          "is_followup": false
+        },
+        {
+          "name": "提高NJ17操作毛利率 — Kelvin出实施方案 @Kelvin",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
+            "人事"
+          ],
+          "people": [
+            "Kelvin"
+          ],
+          "is_followup": false
+        },
+        {
+          "name": "Tyler安排两车3280 extra给Abu @Tyler",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [
+            "Tyler"
+          ],
+          "is_followup": false
+        },
+        {
+          "name": "Abu欠费$15K确认收款日期 — 收款前暂不安排另外两车return",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "Lillian修改审计项目人员比例报告 — 比例计算有误，已要求修改 @Lillian",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [
+            "财务"
+          ],
+          "people": [
+            "Lillian"
+          ],
+          "is_followup": false
         }
       ]
     },
     "month": {
       "my_tasks": [
         {
-          "name": "身份申请材料准备",
-          "status": "todo",
-          "progress": 0,
+          "name": "咨询税务专业人士",
+          "status": "completed",
+          "progress": 100,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "恢复战略项目A推进",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "问甲方：对工会有什么要求",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "问甲方：具体工会工种",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "提交TopTemp员工比例（暂定20%/80%）",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "新staffing公司注册",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "芝加哥运营指标体系建立（SLA+操作毛利率+安全培训合规）",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "当月",
-            "移民"
+            "人事"
           ],
           "people": [],
           "is_followup": false
         },
         {
-          "name": "Q1财务审计完成",
-          "status": "todo",
-          "progress": 0,
-          "tags": [
-            "当月",
-            "财务"
-          ],
+          "name": "Chris离开后制定跟进方案 — 巩固培训效果，避免时间推移效果衰减",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [],
+          "is_followup": true
+        },
+        {
+          "name": "和团队成员确认工资回流方案",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
           "people": [],
           "is_followup": false
         }
       ],
       "followups": [
         {
-          "name": "审计项目最终解决",
-          "status": "todo",
-          "progress": 0,
+          "name": "各仓evaluation落实  @Lillian",
+          "status": "in_progress",
+          "progress": 50,
           "tags": [
-            "当月",
-            "跟进"
+            "人事"
           ],
           "people": [
-            "顾问M"
+            "Lillian"
           ],
           "is_followup": true
+        },
+        {
+          "name": "Tianyu JD达标复盘  @Orrawan",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [
+            "Orrawan"
+          ],
+          "is_followup": true
+        },
+        {
+          "name": "Tianyu double verify执行情况  @Tianyu",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [
+            "Tianyu"
+          ],
+          "is_followup": true
+        },
+        {
+          "name": "王余乐（35仓）安排四车container return给Abu — 下周先安排前两车（确定），后两车视$15K收款情况 @王余乐",
+          "status": "in_progress",
+          "progress": 50,
+          "tags": [],
+          "people": [
+            "王余乐"
+          ],
+          "is_followup": false
         }
       ]
     }
-  }
+  },
+  "stats": {
+    "total_tasks": 42,
+    "completed": 1,
+    "in_progress": 36,
+    "completion_rate": 2.4,
+    "today_total": 8,
+    "week_total": 21,
+    "month_total": 13
+  },
+  "last_updated": "2026-03-02 12:13:18"
 }
