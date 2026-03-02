@@ -375,6 +375,22 @@
           "tags": [],
           "people": [],
           "is_followup": false
+        },
+        {
+          "name": "~~🔁 每月15日：提醒Ecco发Tianyu工资 $4,000~~ ✅02-15 已发",
+          "status": "completed",
+          "progress": 100,
+          "tags": [],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "🔁 每月15日：提醒Ecco发Tianyu工资 $4,000 + 志刚介绍费 $800（下次：03-15）",
+          "status": "todo",
+          "progress": 0,
+          "tags": [],
+          "people": [],
+          "is_followup": false
         }
       ],
       "followups": [
@@ -424,13 +440,13 @@
     }
   },
   "stats": {
-    "total_tasks": 42,
-    "completed": 1,
+    "total_tasks": 44,
+    "completed": 2,
     "in_progress": 36,
-    "completion_rate": 2.4,
+    "completion_rate": 4.5,
     "today_total": 8,
     "week_total": 21,
-    "month_total": 13
+    "month_total": 15
   },
-  "last_updated": "2026-03-02 12:30:05"
+  "last_updated": "2026-03-02 12:31:45"
 }
