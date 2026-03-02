@@ -443,13 +443,13 @@
                 `更新于 ${lastUpdated.toLocaleTimeString('zh-CN')}`;
             
             // 更新周期显示
-            document.getElementById('todayPeriod').textContent = kanbanData.periods.today.display;
-            document.getElementById('weekPeriod').textContent = kanbanData.periods.week.display;
-            document.getElementById('monthPeriod').textContent = kanbanData.periods.month.display;
+            document.getElementById('todayPeriod').textContent = kanbanData.periods.today.label;
+            document.getElementById('weekPeriod').textContent = kanbanData.periods.week.label;
+            document.getElementById('monthPeriod').textContent = kanbanData.periods.month.label;
             
-            document.getElementById('todayHeader').textContent = kanbanData.periods.today.display;
-            document.getElementById('weekHeader').textContent = kanbanData.periods.week.display;
-            document.getElementById('monthHeader').textContent = kanbanData.periods.month.display;
+            document.getElementById('todayHeader').textContent = kanbanData.periods.today.label;
+            document.getElementById('weekHeader').textContent = kanbanData.periods.week.label;
+            document.getElementById('monthHeader').textContent = kanbanData.periods.month.label;
             
             // 渲染任务列表
             renderTaskList('todayMyTasks', kanbanData.tasks.today.my_tasks);
