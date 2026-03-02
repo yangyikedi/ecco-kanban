@@ -13,7 +13,7 @@
       "display": "2026年03月"
     }
   },
-  "last_updated": "2026-03-02T11:01:09.188593",
+  "last_updated": "2026-03-02T11:02:13.698023",
   "tasks": {
     "today": {
       "my_tasks": [
@@ -45,8 +45,8 @@
         },
         {
           "name": "看板系统开发",
-          "status": "todo",
-          "progress": 0,
+          "status": "completed",
+          "progress": 100,
           "tags": [
             "今日",
             "技术"
