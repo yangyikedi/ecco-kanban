@@ -148,9 +148,30 @@
             margin-bottom: 8px;
         }
         
+        .task-checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        
+        .task-checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: #4ECDC4;
+            cursor: pointer;
+        }
+        
         .task-name {
             font-weight: 600;
             color: #2c3e50;
+            flex-grow: 1;
+        }
+        
+        .task-item.completed .task-name {
+            text-decoration: line-through;
+            opacity: 0.7;
         }
         
         .task-status {
@@ -311,6 +332,11 @@
     <div class="container">
         <div class="header">
             <div class="last-updated" id="lastUpdated"></div>
+            <div class="pending-updates" id="pendingUpdates" style="display:none;">
+                <div style="background: rgba(255,193,7,0.9); padding: 8px 15px; border-radius: 15px; font-size: 0.85rem;">
+                    📝 有 <span id="updateCount">0</span> 个任务更新待同步
+                </div>
+            </div>
             <h1>📊 Ecco 智能看板</h1>
             <div class="period-nav">
                 <div class="period-badge" id="todayPeriod"></div>
@@ -446,14 +472,18 @@
             }
             
             container.innerHTML = tasks.map(task => `
-                <div class="task-item ${task.status}" onclick="toggleTask('${task.name}')">
+                <div class="task-item ${task.status}">
                     <div class="task-header">
-                        <div class="task-name">${task.name}</div>
+                        <div class="task-checkbox-wrapper" onclick="toggleTask('${task.name}', event)">
+                            <input type="checkbox" ${task.status === 'completed' ? 'checked' : ''} 
+                                   class="task-checkbox" readonly>
+                            <div class="task-name">${task.name}</div>
+                        </div>
                         <div class="task-status status-${task.status}">
                             ${getStatusText(task.status)}
                         </div>
                     </div>
-                    <div class="task-progress">
+                    <div class="task-progress" onclick="cycleTaskStatus('${task.name}', event)">
                         <div class="progress-fill" style="width: ${task.progress}%"></div>
                     </div>
                     <div class="task-meta">
@@ -478,10 +508,155 @@
             return statusMap[status] || status;
         }
         
-        function toggleTask(taskName) {
-            console.log('切换任务状态:', taskName);
-            // TODO: 实现任务状态切换逻辑
+        function toggleTask(taskName, event) {
+            event.stopPropagation();
+            
+            // 找到对应的任务
+            let targetTask = null;
+            let period = null;
+            let type = null;
+            
+            Object.keys(kanbanData.tasks).forEach(p => {
+                ['my_tasks', 'followups'].forEach(t => {
+                    const task = kanbanData.tasks[p][t].find(task => task.name === taskName);
+                    if (task) {
+                        targetTask = task;
+                        period = p;
+                        type = t;
+                    }
+                });
+            });
+            
+            if (!targetTask) return;
+            
+            // 切换状态: todo → completed → todo
+            if (targetTask.status === 'todo') {
+                targetTask.status = 'completed';
+                targetTask.progress = 100;
+            } else if (targetTask.status === 'completed') {
+                targetTask.status = 'todo';
+                targetTask.progress = 0;
+            } else if (targetTask.status === 'in_progress') {
+                targetTask.status = 'completed';
+                targetTask.progress = 100;
+            }
+            
+            // 更新显示
+            renderKanban();
+            updateStats();
+            
+            // 发送到服务器
+            updateTaskOnServer(taskName, targetTask.status);
+            updatePendingCount();
+            
+            console.log(`✅ 任务 "${taskName}" 状态切换为: ${targetTask.status}`);
         }
+        
+        function cycleTaskStatus(taskName, event) {
+            event.stopPropagation();
+            
+            // 找到对应的任务
+            let targetTask = null;
+            
+            Object.keys(kanbanData.tasks).forEach(period => {
+                ['my_tasks', 'followups'].forEach(type => {
+                    const task = kanbanData.tasks[period][type].find(task => task.name === taskName);
+                    if (task) {
+                        targetTask = task;
+                    }
+                });
+            });
+            
+            if (!targetTask) return;
+            
+            // 循环状态: todo → in_progress → completed → todo
+            switch (targetTask.status) {
+                case 'todo':
+                    targetTask.status = 'in_progress';
+                    targetTask.progress = 50;
+                    break;
+                case 'in_progress':
+                    targetTask.status = 'completed';
+                    targetTask.progress = 100;
+                    break;
+                case 'completed':
+                    targetTask.status = 'todo';
+                    targetTask.progress = 0;
+                    break;
+            }
+            
+            // 更新显示
+            renderKanban();
+            updateStats();
+            
+            // 发送到服务器
+            updateTaskOnServer(taskName, targetTask.status);
+            updatePendingCount();
+            
+            console.log(`🔄 任务 "${taskName}" 进度更新为: ${targetTask.status}`);
+        }
+        
+        function updateTaskOnServer(taskName, newStatus) {
+            // 这里应该调用服务器API更新Vault文件
+            // 由于是静态页面，我们先在本地存储记录
+            const updates = JSON.parse(localStorage.getItem('taskUpdates') || '[]');
+            updates.push({
+                task: taskName,
+                status: newStatus,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('taskUpdates', JSON.stringify(updates));
+            
+            // 显示更新提示
+            showUpdateNotification(taskName, newStatus);
+        }
+        
+        function showUpdateNotification(taskName, status) {
+            // 创建临时通知
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4ECDC4;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+            `;
+            
+            notification.innerHTML = `
+                <strong>✅ 任务已更新</strong><br>
+                ${taskName} → ${getStatusText(status)}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // 3秒后移除
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // 添加CSS动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
         
         function updateStats() {
             let totalTasks = 0;
@@ -510,9 +685,26 @@
             setTimeout(autoRefresh, 60000); // 每分钟刷新
         }
         
+        function updatePendingCount() {
+            const updates = JSON.parse(localStorage.getItem('taskUpdates') || '[]');
+            const pendingDiv = document.getElementById('pendingUpdates');
+            const countSpan = document.getElementById('updateCount');
+            
+            if (updates.length > 0) {
+                countSpan.textContent = updates.length;
+                pendingDiv.style.display = 'block';
+            } else {
+                pendingDiv.style.display = 'none';
+            }
+        }
+        
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             autoRefresh();
+            updatePendingCount();
+            
+            // 每30秒更新一次待同步计数
+            setInterval(updatePendingCount, 30000);
         });
     </script>
 </body>
