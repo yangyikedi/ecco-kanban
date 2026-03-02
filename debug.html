@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🔍 看板数据诊断</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .section { margin: 20px 0; padding: 15px; border: 2px solid #ccc; }
+        .count { font-weight: bold; color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Ecco看板数据诊断</h1>
+    
+    <div class="section">
+        <h2>📊 数据统计</h2>
+        <p>今日任务: <span class="count" id="todayCount">加载中...</span></p>
+        <p>本周任务: <span class="count" id="weekCount">加载中...</span></p>
+        <p>本月任务: <span class="count" id="monthCount">加载中...</span></p>
+        <p><strong>总计: <span class="count" id="totalCount">加载中...</span></strong></p>
+    </div>
+    
+    <div class="section">
+        <h2>📋 今日详细任务</h2>
+        <div id="todayTasks">加载中...</div>
+    </div>
+    
+    <div class="section">
+        <h2>📋 本周详细任务</h2>
+        <div id="weekTasks">加载中...</div>
+    </div>
+    
+    <div class="section">
+        <h2>📋 本月详细任务</h2>
+        <div id="monthTasks">加载中...</div>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('./data/kanban.json');
+                const data = await response.json();
+                
+                // 统计
+                const todayTotal = data.tasks.today.my_tasks.length + data.tasks.today.followups.length;
+                const weekTotal = data.tasks.week.my_tasks.length + data.tasks.week.followups.length;
+                const monthTotal = data.tasks.month.my_tasks.length + data.tasks.month.followups.length;
+                const total = todayTotal + weekTotal + monthTotal;
+                
+                document.getElementById('todayCount').textContent = todayTotal;
+                document.getElementById('weekCount').textContent = weekTotal;
+                document.getElementById('monthCount').textContent = monthTotal;
+                document.getElementById('totalCount').textContent = total;
+                
+                // 详细任务
+                function renderTasks(tasks, container) {
+                    const html = tasks.map(task => 
+                        `<p>• ${task.name} (${task.status}) ${task.people.length > 0 ? '@' + task.people.join(',') : ''}</p>`
+                    ).join('');
+                    container.innerHTML = html || '<p>无任务</p>';
+                }
+                
+                renderTasks([...data.tasks.today.my_tasks, ...data.tasks.today.followups], 
+                          document.getElementById('todayTasks'));
+                renderTasks([...data.tasks.week.my_tasks, ...data.tasks.week.followups], 
+                          document.getElementById('weekTasks'));
+                renderTasks([...data.tasks.month.my_tasks, ...data.tasks.month.followups], 
+                          document.getElementById('monthTasks'));
+                
+            } catch (error) {
+                console.error('加载数据失败:', error);
+                document.body.innerHTML = '<h2>❌ 数据加载失败: ' + error.message + '</h2>';
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
