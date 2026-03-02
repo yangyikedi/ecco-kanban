@@ -1,0 +1,183 @@
+{
+  "periods": {
+    "today": {
+      "date": "2026-03-02",
+      "display": "今日 03-02"
+    },
+    "week": {
+      "range": "03/02-03/08",
+      "display": "本周 03/02-03/08"
+    },
+    "month": {
+      "period": "2026年03月",
+      "display": "2026年03月"
+    }
+  },
+  "last_updated": "2026-03-02T10:58:29.550464",
+  "tasks": {
+    "today": {
+      "my_tasks": [
+        {
+          "name": "张律师邮件",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "今日",
+            "法务"
+          ],
+          "people": [
+            "张律师"
+          ],
+          "is_followup": false
+        },
+        {
+          "name": "WeForce审计跟进",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "今日",
+            "财务"
+          ],
+          "people": [
+            "Mark"
+          ],
+          "is_followup": false
+        },
+        {
+          "name": "看板系统开发",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "今日",
+            "技术"
+          ],
+          "people": [],
+          "is_followup": false
+        }
+      ],
+      "followups": [
+        {
+          "name": "Peter联系LM结果",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "今日",
+            "跟进"
+          ],
+          "people": [
+            "Peter"
+          ],
+          "is_followup": true
+        },
+        {
+          "name": "Momo工资方案确认",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "今日",
+            "跟进"
+          ],
+          "people": [
+            "Momo"
+          ],
+          "is_followup": true
+        }
+      ]
+    },
+    "week": {
+      "my_tasks": [
+        {
+          "name": "DrayX重启规划",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "本周",
+            "战略"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "CedarLink H1B准备",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "本周",
+            "人事"
+          ],
+          "people": [],
+          "is_followup": false
+        }
+      ],
+      "followups": [
+        {
+          "name": "Young商业建议整理",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "本周",
+            "跟进"
+          ],
+          "people": [
+            "Young"
+          ],
+          "is_followup": true
+        },
+        {
+          "name": "律师事务所联系",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "本周",
+            "跟进"
+          ],
+          "people": [
+            "三家律所"
+          ],
+          "is_followup": true
+        }
+      ]
+    },
+    "month": {
+      "my_tasks": [
+        {
+          "name": "绿卡材料准备",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "当月",
+            "移民"
+          ],
+          "people": [],
+          "is_followup": false
+        },
+        {
+          "name": "Q1财务审计完成",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "当月",
+            "财务"
+          ],
+          "people": [],
+          "is_followup": false
+        }
+      ],
+      "followups": [
+        {
+          "name": "WeForce最终解决",
+          "status": "todo",
+          "progress": 0,
+          "tags": [
+            "当月",
+            "跟进"
+          ],
+          "people": [
+            "Mark"
+          ],
+          "is_followup": true
+        }
+      ]
+    }
+  }
+}
