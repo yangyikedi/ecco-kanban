@@ -13,12 +13,12 @@
       "display": "2026年03月"
     }
   },
-  "last_updated": "2026-03-02T11:11:10.731750",
+  "last_updated": "2026-03-02T11:13:10.054327",
   "tasks": {
     "today": {
       "my_tasks": [
         {
-          "name": "张律师邮件",
+          "name": "法务顾问邮件",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -26,12 +26,12 @@
             "法务"
           ],
           "people": [
-            "张律师"
+            "法务顾问"
           ],
           "is_followup": false
         },
         {
-          "name": "WeForce审计跟进",
+          "name": "审计项目审计跟进",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -39,7 +39,7 @@
             "财务"
           ],
           "people": [
-            "Mark"
+            "顾问M"
           ],
           "is_followup": false
         },
@@ -57,7 +57,7 @@
       ],
       "followups": [
         {
-          "name": "Peter联系LM结果",
+          "name": "保险顾问联系LM结果",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -65,12 +65,12 @@
             "跟进"
           ],
           "people": [
-            "Peter"
+            "顾问P"
           ],
           "is_followup": true
         },
         {
-          "name": "Momo工资方案确认",
+          "name": "团队成员工资方案确认",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -78,7 +78,7 @@
             "跟进"
           ],
           "people": [
-            "Momo"
+            "成员M"
           ],
           "is_followup": true
         }
@@ -87,7 +87,7 @@
     "week": {
       "my_tasks": [
         {
-          "name": "DrayX重启规划",
+          "name": "战略项目A重启规划",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -98,7 +98,7 @@
           "is_followup": false
         },
         {
-          "name": "CedarLink H1B准备",
+          "name": "项目B H1B准备",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -111,7 +111,7 @@
       ],
       "followups": [
         {
-          "name": "Young商业建议整理",
+          "name": "商业顾问商业建议整理",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -119,12 +119,12 @@
             "跟进"
           ],
           "people": [
-            "Young"
+            "顾问Y"
           ],
           "is_followup": true
         },
         {
-          "name": "律师事务所联系",
+          "name": "法务机构联系",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -132,7 +132,7 @@
             "跟进"
           ],
           "people": [
-            "三家律所"
+            "法务机构"
           ],
           "is_followup": true
         }
@@ -141,7 +141,7 @@
     "month": {
       "my_tasks": [
         {
-          "name": "绿卡材料准备",
+          "name": "身份申请材料准备",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -165,7 +165,7 @@
       ],
       "followups": [
         {
-          "name": "WeForce最终解决",
+          "name": "审计项目最终解决",
           "status": "todo",
           "progress": 0,
           "tags": [
@@ -173,7 +173,7 @@
             "跟进"
           ],
           "people": [
-            "Mark"
+            "顾问M"
           ],
           "is_followup": true
         }
